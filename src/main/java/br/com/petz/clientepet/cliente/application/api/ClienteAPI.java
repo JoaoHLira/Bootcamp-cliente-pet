@@ -2,6 +2,7 @@ package br.com.petz.clientepet.cliente.application.api;
 
 import br.com.petz.clientepet.cliente.application.api.request.ClienteRequest;
 import br.com.petz.clientepet.cliente.application.api.response.ClienteResponse;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,5 +12,5 @@ public interface ClienteAPI {
 
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    ClienteResponse postCliente(@RequestBody ClienteRequest clienteRequest);
+    ClienteResponse postCliente(@Valid @RequestBody ClienteRequest clienteRequest);
 }
