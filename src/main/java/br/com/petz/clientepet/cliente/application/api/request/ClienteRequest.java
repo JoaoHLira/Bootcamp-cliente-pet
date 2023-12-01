@@ -12,7 +12,7 @@ public class ClienteRequest {
     private String celular;
     private String telefone;
     private Sexo sexo;
-    private LocalDate dataNascinmento;
+    private LocalDate dataNascimento;
     private String cpf;
     private Boolean aceitaTermos;
 }

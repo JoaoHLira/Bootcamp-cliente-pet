@@ -33,7 +33,7 @@ public class Cliente {
     private String telefone;
     private Sexo sexo;
     @NotNull
-    private LocalDate dataNascinmento;
+    private LocalDate dataNascimento;
     @CPF
     private String cpf;
     @NotNull
@@ -48,7 +48,7 @@ public class Cliente {
         this.celular = clienteRequest.getCelular();
         this.telefone = clienteRequest.getTelefone();
         this.sexo = clienteRequest.getSexo();
-        this.dataNascinmento = clienteRequest.getDataNascinmento();
+        this.dataNascimento = clienteRequest.getDataNascimento();
         this.cpf = clienteRequest.getCpf();
         this.aceitaTermos = clienteRequest.getAceitaTermos();
         this.dataHoraDoCadastro = LocalDateTime.now();
