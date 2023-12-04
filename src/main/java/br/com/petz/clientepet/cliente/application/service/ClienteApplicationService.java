@@ -1,6 +1,7 @@
 package br.com.petz.clientepet.cliente.application.service;
 
 import br.com.petz.clientepet.cliente.application.api.request.ClienteRequest;
+import br.com.petz.clientepet.cliente.application.api.response.ClienteDetalhadoResponse;
 import br.com.petz.clientepet.cliente.application.api.response.ClienteListResponse;
 import br.com.petz.clientepet.cliente.application.api.response.ClienteResponse;
 import br.com.petz.clientepet.cliente.application.repository.ClienteRepository;
@@ -10,6 +11,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Log4j2
@@ -19,7 +21,7 @@ public class ClienteApplicationService implements ClienteService {
     private final ClienteRepository clienteRepository;
     @Override
     public ClienteResponse criaCliente(ClienteRequest clienteRequest) {
-        log.info("[Inicia] ClienteApplicationService  - criaCliente");
+        log.info("[Inicia] ClienteApplicationService - criaCliente");
         Cliente cliente = clienteRepository.salva(new Cliente(clienteRequest));
         log.info("[finaliza] ClienteApplicationService - criaCliente");
         return ClienteResponse.builder()
@@ -29,9 +31,16 @@ public class ClienteApplicationService implements ClienteService {
 
     @Override
     public List<ClienteListResponse> buscaTodosClientes() {
-        log.info("[Inicia] ClienteApplicationService  - buscaTodosClientes");
+        log.info("[Inicia] ClienteApplicationService - buscaTodosClientes");
         List<Cliente> clientes = clienteRepository.buscaTodosClientes();
-        log.info("[finaliza] ClienteApplicationService  - buscaTodosClientes");
+        log.info("[finaliza] ClienteApplicationService - buscaTodosClientes");
         return ClienteListResponse.converte(clientes);
+    }
+
+    @Override
+    public ClienteDetalhadoResponse buscaClienteAtravesId(UUID idCliente) {
+        log.info("[Inicia] ClienteApplicationService - buscaClienteAtravesId");
+        log.info("[finaliza] ClienteApplicationService - buscaClienteAtravesId");
+        return null;
     }
 }
