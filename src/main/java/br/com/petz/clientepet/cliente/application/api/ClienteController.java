@@ -1,5 +1,6 @@
 package br.com.petz.clientepet.cliente.application.api;
 
+import br.com.petz.clientepet.cliente.application.api.request.ClienteAlteracaoRequest;
 import br.com.petz.clientepet.cliente.application.api.request.ClienteRequest;
 import br.com.petz.clientepet.cliente.application.api.response.ClienteDetalhadoResponse;
 import br.com.petz.clientepet.cliente.application.api.response.ClienteListResponse;
@@ -50,5 +51,12 @@ public class ClienteController implements ClienteAPI {
         log.info("[idCliente] {}", idCliente);
         clienteService.deletaClienteAtravesId(idCliente);
         log.info("[finaliza] ClienteController - deletaClienteAtravesId");
+    }
+
+    @Override
+    public void patchAlteraCliente(UUID idCliente, ClienteAlteracaoRequest clienteAlteracaoRequest) {
+        log.info("[inicia] ClienteController - patchAlteraCliente");
+        log.info("[idCliente] {}", idCliente);
+        log.info("[finaliza] ClienteController - patchAlteraCliente");
     }
 }

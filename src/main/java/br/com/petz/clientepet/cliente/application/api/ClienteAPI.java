@@ -1,5 +1,6 @@
 package br.com.petz.clientepet.cliente.application.api;
 
+import br.com.petz.clientepet.cliente.application.api.request.ClienteAlteracaoRequest;
 import br.com.petz.clientepet.cliente.application.api.request.ClienteRequest;
 import br.com.petz.clientepet.cliente.application.api.response.ClienteDetalhadoResponse;
 import br.com.petz.clientepet.cliente.application.api.response.ClienteListResponse;
@@ -28,4 +29,8 @@ public interface ClienteAPI {
     @DeleteMapping(value = "/{idCliente}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void deletaClienteAtravesId(@PathVariable UUID idCliente);
+    @PatchMapping(value = "/{idCliente}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void patchAlteraCliente(@PathVariable UUID idCliente,
+                            @Valid @RequestBody ClienteAlteracaoRequest clienteAlteracaoRequest);
 }
