@@ -1,5 +1,6 @@
 package br.com.petz.clientepet.cliente.application.service;
 
+import br.com.petz.clientepet.cliente.application.api.request.ClienteAlteracaoRequest;
 import br.com.petz.clientepet.cliente.application.api.request.ClienteRequest;
 import br.com.petz.clientepet.cliente.application.api.response.ClienteDetalhadoResponse;
 import br.com.petz.clientepet.cliente.application.api.response.ClienteListResponse;
@@ -13,4 +14,5 @@ public interface ClienteService {
     List<ClienteListResponse> buscaTodosClientes();
     ClienteDetalhadoResponse buscaClienteAtravesId(UUID idCliente);
     void deletaClienteAtravesId(UUID idCliente);
+    void patchAlteraCliente(UUID idCliente, ClienteAlteracaoRequest clienteAlteracaoRequest);
 }

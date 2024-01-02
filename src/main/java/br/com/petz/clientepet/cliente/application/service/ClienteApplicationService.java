@@ -1,5 +1,6 @@
 package br.com.petz.clientepet.cliente.application.service;
 
+import br.com.petz.clientepet.cliente.application.api.request.ClienteAlteracaoRequest;
 import br.com.petz.clientepet.cliente.application.api.request.ClienteRequest;
 import br.com.petz.clientepet.cliente.application.api.response.ClienteDetalhadoResponse;
 import br.com.petz.clientepet.cliente.application.api.response.ClienteListResponse;
@@ -53,4 +54,12 @@ public class ClienteApplicationService implements ClienteService {
         log.info("[finaliza] ClienteApplicationService - deletaClienteAtravesId");
     }
 
+    @Override
+    public void patchAlteraCliente(UUID idCliente, ClienteAlteracaoRequest clienteAlteracaoRequest) {
+        log.info("[Inicia] ClienteApplicationService - deletaClienteAtravesId");
+        Cliente cliente = clienteRepository.buscaClienteAtravesId(idCliente);
+        cliente.altera(clienteAlteracaoRequest);
+        clienteRepository.salva(cliente);
+        log.info("[finaliza] ClienteApplicationService - deletaClienteAtravesId");
+    }
 }
