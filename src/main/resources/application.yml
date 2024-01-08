@@ -1,13 +1,14 @@
 server:
- servlet:
+  servlet:
     context-path: /cliente-pet/api
 
 spring:
   datasource:
-    url: jdbc:h2:mem:demodb
+    url:  jdbc:h2:mem:demodb
     username: sa
     password:
-    driverClassName: org.h2.Driver
+    dbcp2:
+      driver-class-name: org.h2.Driver
 
   h2:
     console:
