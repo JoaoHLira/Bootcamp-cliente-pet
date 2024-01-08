@@ -5,7 +5,6 @@ import br.com.petz.clientepet.pet.application.api.response.PetClienteDetalhadoRe
 import br.com.petz.clientepet.pet.application.api.response.PetClienteListResponse;
 import br.com.petz.clientepet.pet.application.api.response.PetResponse;
 import br.com.petz.clientepet.pet.application.service.PetService;
-import br.com.petz.clientepet.pet.domain.Pet;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,6 +39,7 @@ public class PetController implements PetAPI {
     public PetClienteDetalhadoResponse getPetAtravesId(UUID idCliente, UUID idPet) {
         log.info("[inicia] PetController -  getPetAtravesId");
         log.info("[idCliente] {} - [idPet] - {}", idCliente, idPet);
+        PetClienteDetalhadoResponse pet = petService.buscaPetDoClienteComId(idCliente, idPet);
         log.info("[finaliza] PetController -  getPetAtravesId");
         return null;
     }
