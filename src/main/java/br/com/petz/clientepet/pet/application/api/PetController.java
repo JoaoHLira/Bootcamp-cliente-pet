@@ -1,6 +1,7 @@
 package br.com.petz.clientepet.pet.application.api;
 
 import br.com.petz.clientepet.pet.application.api.request.PetRequest;
+import br.com.petz.clientepet.pet.application.api.response.PetClienteDetalhadoResponse;
 import br.com.petz.clientepet.pet.application.api.response.PetClienteListResponse;
 import br.com.petz.clientepet.pet.application.api.response.PetResponse;
 import br.com.petz.clientepet.pet.application.service.PetService;
@@ -33,5 +34,13 @@ public class PetController implements PetAPI {
         List<PetClienteListResponse>  petsDoCliente = petService.buscaPetsDoClienteComId(idCliente);
         log.info("[finaliza] PetController - getPetsDoClienteComId");
         return petsDoCliente;
+    }
+
+    @Override
+    public PetClienteDetalhadoResponse getPetAtravesId(UUID idCliente, UUID idPet) {
+        log.info("[inicia] PetController -  getPetAtravesId");
+        log.info("[idCliente] {} - [idPet] - {}", idCliente, idPet);
+        log.info("[finaliza] PetController -  getPetAtravesId");
+        return null;
     }
 }

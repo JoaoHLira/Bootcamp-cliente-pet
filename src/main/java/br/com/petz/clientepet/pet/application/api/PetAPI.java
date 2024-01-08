@@ -1,8 +1,8 @@
 package br.com.petz.clientepet.pet.application.api;
 
-import br.com.petz.clientepet.cliente.application.api.response.ClienteListResponse;
 import br.com.petz.clientepet.pet.application.api.request.PetRequest;
 import br.com.petz.clientepet.pet.application.api.response.PetClienteListResponse;
+import br.com.petz.clientepet.pet.application.api.response.PetClienteDetalhadoResponse;
 import br.com.petz.clientepet.pet.application.api.response.PetResponse;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
@@ -20,5 +20,8 @@ public interface PetAPI {
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     List<PetClienteListResponse> getPetsDoClienteComId(@PathVariable UUID idCliente);
+    @GetMapping(value = "/{idPet}")
+    @ResponseStatus(code = HttpStatus.OK)
+    PetClienteDetalhadoResponse getPetAtravesId(@PathVariable UUID idCliente, @PathVariable UUID idPet);
 
 }
