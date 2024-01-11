@@ -1,5 +1,6 @@
 package br.com.petz.clientepet.pet.application.api;
 
+import br.com.petz.clientepet.pet.application.api.request.PetAlteracaoRequest;
 import br.com.petz.clientepet.pet.application.api.request.PetRequest;
 import br.com.petz.clientepet.pet.application.api.response.PetClienteDetalhadoResponse;
 import br.com.petz.clientepet.pet.application.api.response.PetClienteListResponse;
@@ -50,5 +51,13 @@ public class PetController implements PetAPI {
         log.info("[idCliente] {} - [idPet] - {}", idCliente, idPet);
         petService.deletaPetDoClienteComId(idCliente, idPet);
         log.info("[finaliza] PetController - deletaPetAtravesId");
+    }
+
+    @Override
+    public PetResponse patchPet(UUID idCliente, UUID idPet, PetAlteracaoRequest petAlteracaoRequest) {
+        log.info("[inicia] PetController - patchPet");
+        log.info("[idCliente] {} - [idPet] - {}", idCliente, idPet);
+        log.info("[finaliza] PetController - patchPet");
+        return null;
     }
 }

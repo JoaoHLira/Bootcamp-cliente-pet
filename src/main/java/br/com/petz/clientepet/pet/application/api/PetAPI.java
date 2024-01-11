@@ -1,5 +1,6 @@
 package br.com.petz.clientepet.pet.application.api;
 
+import br.com.petz.clientepet.pet.application.api.request.PetAlteracaoRequest;
 import br.com.petz.clientepet.pet.application.api.request.PetRequest;
 import br.com.petz.clientepet.pet.application.api.response.PetClienteListResponse;
 import br.com.petz.clientepet.pet.application.api.response.PetClienteDetalhadoResponse;
@@ -16,7 +17,8 @@ import java.util.UUID;
 public interface PetAPI {
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    PetResponse postPet(@PathVariable UUID idCliente, @Valid @RequestBody PetRequest petRequest);
+    PetResponse postPet(@PathVariable UUID idCliente,
+                        @Valid @RequestBody PetRequest petRequest);
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     List<PetClienteListResponse> getPetsDoClienteComId(@PathVariable UUID idCliente);
@@ -26,5 +28,8 @@ public interface PetAPI {
     @DeleteMapping(value = "/{idPet}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void deletaPetAtravesId(@PathVariable UUID idCliente, @PathVariable UUID idPet);
-
+    @PatchMapping(value = "/{idPet}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    PetResponse patchPet(@PathVariable UUID idCliente, @PathVariable UUID idPet,
+                         @Valid @RequestBody PetAlteracaoRequest petAlteracaoRequest);
 }
