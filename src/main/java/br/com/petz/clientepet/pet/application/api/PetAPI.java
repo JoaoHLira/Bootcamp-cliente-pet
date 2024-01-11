@@ -23,5 +23,8 @@ public interface PetAPI {
     @GetMapping(value = "/{idPet}")
     @ResponseStatus(code = HttpStatus.OK)
     PetClienteDetalhadoResponse getPetAtravesId(@PathVariable UUID idCliente, @PathVariable UUID idPet);
+    @DeleteMapping(value = "/{idPet}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void deletaPetAtravesId(@PathVariable UUID idCliente, @PathVariable UUID idPet);
 
 }
